@@ -16,17 +16,42 @@ const db = mysql.createConnection(
         // MySQL username
         user: "root",
         password: "thankYou*1",
-        database: "movies_db"
+        database: "movie_db"
     },
     console.log("Connected to the movie_db database")
 );
 
+// Gets the list of all movies
 app.get("/api/movies", (req, res) => {
-
+    db.query("SELECT * FROM movies", (err, data) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.json(data);
+        }
+    });
 });
 
+// Adds a movie to db
 app.post("/api/add-movie", (req, res) => {
-
+    const {movie_name} = req.body;
+    if (movie_name) {
+        db.query(`INSERT INTO movies (movie_name) VALUES (?)`, movie_name, (err, data) => {
+            if (err) {
+                res.json(err);
+            }
+            else {
+                res.json({
+                    message: "success",
+                    data: req.body
+                });
+            }
+        });
+    }
+    else {
+        res.json("No movie name provided");
+    }
 });
 
 app.delete("/api/movie/:id", (req, res) => {
