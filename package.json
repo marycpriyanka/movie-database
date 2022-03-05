@@ -1,0 +1,24 @@
+{
+  "name": "movie-database",
+  "version": "1.0.0",
+  "description": "Handle routes for creating, retieving and deleting movies from a MySQL database",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marycpriyanka/movie-database.git"
+  },
+  "author": "Priyanka",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marycpriyanka/movie-database/issues"
+  },
+  "homepage": "https://github.com/marycpriyanka/movie-database#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "mysql2": "^2.3.3"
+  }
+}
